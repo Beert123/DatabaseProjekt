@@ -11,9 +11,10 @@ void setup(){
   
   if(db.connect()){
     println("Connected to database");
-    db.query("SELECT * Tables");
+    db.query("SELECT name as \"Name\" FROM SQLITE_MASTER where type =\"table\"");
     
     while (db.next()){
+      println("Next");
      println(db.getString("CustomerID")); 
    }
     
